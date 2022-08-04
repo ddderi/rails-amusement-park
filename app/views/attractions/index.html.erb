@@ -1,0 +1,21 @@
+<h1> list of all attractions </h1>
+
+<ul>
+<% @attractions.each do |f| %>
+<% if real_user.admin %>
+<li><%= link_to "Show #{f.name}", attraction_path(f) %></li>
+
+<%else%>
+<li><%= link_to "Go on #{f.name}", attraction_path(f) %></li>
+<%end%>
+<%end%>
+</ul>
+
+
+<% if @user %>
+  <p>
+    <%= link_to "Back to profile", user_path(@user), {:class => "btn btn-primary"} %>
+  </p>
+<% else %>
+  <p><%= link_to 'New Attraction', new_attraction_url %></p>
+<% end %>

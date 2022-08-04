@@ -1,0 +1,24 @@
+<h1>Welcome  </h1>
+
+<ul>
+<li><%= @user.name %></li>
+<li>Mood : <%= @user.mood %></li>
+<li>Happiness :<%= @user.happiness %></li>
+<li>Tickets: <%= @user.tickets %></li>
+<li>Nausea : <%= @user.nausea %></li>
+<li>Height :<%= @user.height %></li>
+</ul>
+<%= link_to 'Log Out', ({controller: 'sessions', action: 'destroy', method: 'get'}) %><br>
+
+<%= link_to 'See attractions', ({controller: 'attractions', action: 'index', method: 'get'}) %> <br>
+
+<% if flash[:message] %>
+  <div class="center alert">
+    <p><%= flash[:message] %></p>
+  </div>
+<% end %>
+
+
+<%= @user.admin ? 'ADMIN' : nil %><br>
+
+
